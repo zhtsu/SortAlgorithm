@@ -29,5 +29,20 @@ void BubbleSort(int Array[], int Size, bool Reverse)
     }
 }
 
+void SelectionSort(int Array[], int Size, bool Reverse)
+{
+    for (int i = 0; i < Size; i++)
+    {
+        int idx = i;
+        for (int j = i + 1; j < Size; j++)
+        {
+            bool Flag = Array[i] > Array[j];
+            if (Reverse) Flag = !Flag;
+            if (Flag) idx = j;
+        }
+
+        std::swap(Array[i], Array[idx]);
+    }
+}
 
 }

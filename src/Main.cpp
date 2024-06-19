@@ -6,6 +6,8 @@ int main()
 
     mysort::BubbleSort(Array, 10);
     mysort::PrintArray(Array, 10, "BubbleSort");
+    mysort::SelectionSort(Array, 10);
+    mysort::PrintArray(Array, 10, "SelectionSort");
 
     return 0;
 }
