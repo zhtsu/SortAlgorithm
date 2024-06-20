@@ -8,6 +8,8 @@ int main()
     mysort::PrintArray(Array, 10, "BubbleSort");
     mysort::SelectionSort(Array, 10);
     mysort::PrintArray(Array, 10, "SelectionSort");
+    mysort::QuickSort(Array, 10);
+    mysort::PrintArray(Array, 10, "QuickSort");
 
     return 0;
 }

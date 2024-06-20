@@ -45,4 +45,45 @@ void SelectionSort(int Array[], int Size, bool Reverse)
     }
 }
 
+int _Partition(int Array[], int Start, int End, bool Reverse)
+{
+    printf("%d %d\n", Start, End);
+    int Left = Start, Right = End;
+    bool Flag;
+    while (Left < Right)
+    {
+        Flag = (Reverse ? Array[Left] > Array[Right] : Array[Left] < Array[Right]);
+        while (Left < Right && Flag) Left++;
+        if (Left < Right)
+        {
+            std::swap(Array[Left], Array[Right]);
+            Right--;
+        }
+
+        Flag = (Reverse ? Array[Left] > Array[Right] : Array[Left] < Array[Right]);
+        while (Left < Right && Flag) Right--;
+        if (Left < Right)
+        {
+            std::swap(Array[Left], Array[Right]);
+            Left++;
+        }
+    }
+
+    return Left;
+}
+
+void _QuickSort_Recursive(int Array[], int Start, int End, bool Reverse)
+{
+    if (Start >= End) return;
+
+    int Pivot = _Partition(Array, Start, End, Reverse);
+    _QuickSort_Recursive(Array, Start, Pivot - 1, Reverse);
+    _QuickSort_Recursive(Array, Pivot + 1, End, Reverse);
+}
+
+void QuickSort(int Array[], int Size, bool Reverse)
+{
+    _QuickSort_Recursive(Array, 0, Size - 1, Reverse);
+}
+
 }
